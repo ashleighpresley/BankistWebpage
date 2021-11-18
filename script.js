@@ -12,8 +12,12 @@ const header = document.querySelector('.header');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
 ///////////////////////////////////////////////////////////
-// Modal window
+//Modal window
 
 const openModal = function (e) {
   e.preventDefault();
@@ -72,3 +76,20 @@ btnScrollTo.addEventListener('click', function () {
 });
 
 ///////////////////////////////////////////////////////////
+//Operations tabs
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
+
+  //Remove actice classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  //Add active class to clicked area
+  clicked.classList.add('operations__tab--active');
+
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
