@@ -41,3 +41,32 @@ const closeCookieBtn = document.querySelector('.btn--close-cookie');
 closeCookieBtn.addEventListener('click', function () {
   message.remove();
 });
+
+const allLinks = document.querySelectorAll('a:link');
+
+allLinks.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const href = link.getAttribute('href');
+
+    //Scoll to top
+    if (href === '#')
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+
+    //Scoll to selected section
+    if (href !== '#' && href.startsWith('#')) {
+      const section = document.querySelector(href);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function () {
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
