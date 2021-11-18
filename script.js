@@ -1,6 +1,6 @@
 'use strict';
 
-///////////////////////////////////////
+///////////////////////////////////////////////////////////
 // Modal window
 
 const modal = document.querySelector('.modal');
@@ -31,6 +31,9 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+///////////////////////////////////////////////////////////
+//Cookies message
+
 const message = document.createElement('div');
 message.classList.add('cookie-message');
 message.innerHTML = `We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>`;
@@ -42,6 +45,8 @@ closeCookieBtn.addEventListener('click', function () {
   message.remove();
 });
 
+///////////////////////////////////////////////////////////
+//Smooth scrolling animation
 const allLinks = document.querySelectorAll('a:link');
 
 allLinks.forEach(function (link) {
@@ -70,3 +75,4 @@ const section1 = document.querySelector('#section--1');
 btnScrollTo.addEventListener('click', function () {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+///////////////////////////////////////////////////////////
